@@ -1,3 +1,5 @@
+<img src="./fig3.png" width="400px"></img>
+
 ## Dex1B (wip)
 
 ## Citations
