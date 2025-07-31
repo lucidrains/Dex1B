@@ -1,7 +1,9 @@
 import torch
 from torch.nn import Module, ModuleList
 
-from x_transformer import Encoder
+from x_transformers import Encoder
+
+from x_mlps_pytorch import MLP
 
 # helpers
 
@@ -14,5 +16,10 @@ def default(v, d):
 # classes
 
 class VAE(Module):
+    def __init__(self):
+        super().__init__()
+
+
+class Dex1B(Module):
     def __init__(self):
         super().__init__()
