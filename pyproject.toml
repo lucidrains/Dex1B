@@ -26,6 +26,7 @@ classifiers=[
 
 dependencies = [
     "einops>=0.8.0",
+    "gotennet-pytorch>=0.3.1",
     "torch>=2.0",
     "x-transformers>=2.5.3"
 ]
