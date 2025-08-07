@@ -15,6 +15,12 @@ def default(v, d):
 
 # classes
 
+class PointTransformer(Module):
+    """ https://arxiv.org/abs/2312.10035v1 """
+
+    def __init__(self):
+        super().__init__()
+
 class CVAE(Module):
     def __init__(
         self,
@@ -73,7 +79,7 @@ class CVAE(Module):
 class DexSimple(Module):
     def __init__(
         self,
-        pointnet: Module,
+        point_transformer: PointTransformer,
         cvae: CVAE
     ):
         super().__init__()

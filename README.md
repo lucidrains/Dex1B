@@ -12,3 +12,15 @@
     year    = {2025}
 }
 ```
+
+```bibtex
+@misc{wu2024pointtransformerv3simpler,
+    title   = {Point Transformer V3: Simpler, Faster, Stronger}, 
+    author  = {Xiaoyang Wu and Li Jiang and Peng-Shuai Wang and Zhijian Liu and Xihui Liu and Yu Qiao and Wanli Ouyang and Tong He and Hengshuang Zhao},
+    year    = {2024},
+    eprint  = {2312.10035},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CV},
+    url     = {https://arxiv.org/abs/2312.10035}, 
+}
+```
