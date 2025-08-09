@@ -39,7 +39,7 @@ def simple_sdf_loss(
 
     hand_to_closest_dist = hand_to_all_surface.amin(dim = -1)
 
-    return hand_to_closest_dist.sum()
+    return hand_to_closest_dist.square().sum()
 
 # classes
 
