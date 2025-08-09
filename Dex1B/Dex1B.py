@@ -1,9 +1,13 @@
 import torch
+from torch import cdist
 from torch.nn import Module, ModuleList
 
 from x_transformers import Encoder
 
 from x_mlps_pytorch import MLP
+
+import einx
+from einops import rearrange
 
 # helpers
 
@@ -12,6 +16,30 @@ def exists(v):
 
 def default(v, d):
     return v if exists(v) else d
+
+# losses
+
+def simple_sdf_loss(
+    surface_points,     # (b n 3)
+    hand_points,        # (b m 3)
+    hand_point_radius,  # (b m)
+    mask = None         # (b n) | none
+):
+    """
+    add their simple penetration loss in section IV
+    """
+
+    dist = cdist(hand_points, surface_points)
+
+    hand_to_all_surface = einx.subtract('b m, b m n', hand_point_radius, dist).relu() # max(0, radius - dist)
+
+    if exists(mask):
+        mask_value = torch.finfo(hand_to_all_surface.dtype).max
+        hand_to_all_surface = einx.where('b n, b m n,', mask, hand_to_all_surface, mask_value)
+
+    hand_to_closest_dist = hand_to_all_surface.amin(dim = -1)
+
+    return hand_to_closest_dist.sum()
 
 # classes
 
