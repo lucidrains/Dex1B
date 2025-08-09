@@ -27,6 +27,7 @@ def simple_sdf_loss(
 ):
     """
     add their simple penetration loss in section IV
+    they claim this to be more stable than mesh-sphere
     """
 
     dist = cdist(hand_points, surface_points)
