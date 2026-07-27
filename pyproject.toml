@@ -1,6 +1,6 @@
 [project]
 name = "Dex1B"
-version = "0.0.4"
+version = "0.0.5"
 description = "Dex1B - Learning with 1B Demonstrations for Dexterous Manipulation"
 authors = [
     { name = "Phil Wang", email = "lucidrains@gmail.com" }
