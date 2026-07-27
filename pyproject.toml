@@ -1,7 +1,7 @@
 [project]
 name = "Dex1B"
 version = "0.0.4"
-description = "MMDiT"
+description = "Dex1B - Learning with 1B Demonstrations for Dexterous Manipulation"
 authors = [
     { name = "Phil Wang", email = "lucidrains@gmail.com" }
 ]
@@ -26,8 +26,9 @@ classifiers=[
 
 dependencies = [
     "einops>=0.8.0",
-    "gotennet-pytorch>=0.3.1",
+    "einx>=0.3.0",
     "torch>=2.0",
+    "torch-einops-utils>=0.1.11",
     "x-mlps-pytorch",
     "x-transformers>=2.5.3",
 ]
@@ -57,6 +58,14 @@ dev-dependencies = []
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "Dex1B",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["Dex1B"]
